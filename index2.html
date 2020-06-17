@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue.js Component Fundamentals</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>Vue.js Components Fundamentals</h1>
+
+    <!-- 컴포넌트 불러오기, 다른 컴포넌트에 영향을 안줘서 여러개 생성 가능 -->
+    <click-counter></click-counter>
+    <click-counter></click-counter>
+    <click-counter></click-counter>
+    <click-counter></click-counter>
+  </div>
+
+  <script type="text/x-template" id="click-counter-template">
+    <!-- 템플릿은 하나만 쓸 수 있다. -->
+    <!-- div는 아래 위로 하나씩 기본으로 만들어준다. -->
+    <div>
+      <p>the conut is:</p>
+      <button @click="count++">{{count}}</button>
+    </div>
+  </script>
+
+  <!-- 페이지가 로드될 때 아래 두개도 포함하여 로드 -->
+  <script src="https://unpkg.com/vue"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,26 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Shopping List App</title>
+  <link rel="stylesheet" href="fundamental.css">
 </head>
+
 <body>
   <div id="shopping-list">
-    <h1>{{header}}</h1>
-    <input v-model="header">
+    <div>
+      <h1>{{ header.toLocaleUpperCase() }}</h1>
+      <button v-if="state === 'default'" class="btn btn-primary" @click="changeState('edit')">Add Item</button>
+      <button v-else class="btn btn-cancel" @click="changeState('default')">cancle</button>
+    </div>
+
+    <div v-if="state === 'edit'" class="add-item-form">
+      <input v-model="newItem" type="text" placeholder="Add an item" @keyup.enter="saveItem">
+      <p>{{ characterCount }}/200</p>
+      <button class="btn btn-primary" :disabled="newItem.length === 0" @click="saveItem">Save Item</button>
+    </div>
+    <ul>
+      <!-- 추가한 아이템을 제일 위로 넣기 -->
+      <li v-for="item in reversedItems" :class="{strikeout: item.purchased}"  @click="togglePurchased(item)">{{ item.label }}</li>
+    </ul>
+    <p v-if="items.length === 0">Nice job! You've bought all your items.</p>
   </div>
 
   <script src="http://unpkg.com/vue"></script>
   <script>
-    // ID가 쇼핑리스트인 것만 관장한다.
-    var shoppingList = new Vue;  
-    el: '#shopping-List',
-    data: {
-      header: 'Vue is ready to party!!!'
-    }
+    var shoppingList = new Vue({
+      el: '#shopping-list',
+      data: {
+        state: 'default',
+        header: 'Shopping List App',
+        newItem: '',
+        items: [
+          {
+            label: '10 party hats',
+            purchased: false,
+            highPriority: false,
+          },
+          {
+            label: '20 party hats',
+            purchased: true,
+            highPriority: false,
+          },         
+          {
+            label: '30 party hats',
+            purchased: false,
+            highPriority: true,
+          },
+        ]
+      },
+      // item 이름의 길이
+      // computed: {
+      //   characterCount() {
+      //     return this.newItem.length;
+      //   }
+      computed: {
+          reversedItems() {
+           return this.items.slice(0).reverse();
+         }
+      },
+      methods: {
+        saveItem: function(){
+          this.items.push({
+            label: this.newItem,
+            purchased : false,
+          });
+          this.newItem = '';
+        },
+        changeState: function(newState){
+          this.state = newState;
+          this.newItem = ''; 
+        },
+        // 아이템의 purchased를 받아와 클릭시 변경
+        togglePurchased: function(item) {
+          item.purchased = !item.purchased;
+        }
 
-    s
+      }
+    });
   </script>
 </body>
 </html>

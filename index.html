@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping List App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div id="shopping-list">
+    <h1>{{header.toLocaleUpperCase() }}</h1>
+    <!-- v-on => @ : v가 붙어있으면 다시 보고 on이 있으니 속성을 활성화하라-->
+    <input v-model="newItem" type="text" placeholder="Add an item" @keyup.enter="saveItem">
+    <button class="btn btn-primary" @click = "saveItem">Save Item</button>
+    <ul>
+      <!-- item이면 item이다 -->
+      <li v-for="item in items">{{ item }}</li>
+    </ul>
+  </div>
+  <script src="https://unpkg.com/vue"></script>
+  <script>
+    // ID가 쇼핑리스트인 것만 관장한다.
+    var shoppingList = new Vue({ 
+    el: '#shopping-list',
+    data: {
+        header: 'shopping list app',
+        newItem: '',
+        items : [
+          '10 party hats',
+          '2 board games',
+          '20 cups',
+        ]
+      },
+      methods: {
+        saveItem: function(){
+          this.item.push(this.newItem);
+        }
+      }
+    });
+  
+  </script>
+</body>
+</html>
