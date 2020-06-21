@@ -4,7 +4,7 @@
     <h1>Create an Event, {{ user.name }}</h1>
     <!--텍스트 내용 + 유저네임 -->
     <p>This event was created by {{ user.id }}</p>
-    <p>{{  getEvent(1) }}</p>
+    <p>{{  getEventById(1) }}</p>
   </div>
 </template>
 
