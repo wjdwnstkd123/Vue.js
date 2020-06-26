@@ -1,10 +1,12 @@
 <template>
   <div id="nav" class="nav">
-    <router-link to="/" class="brand">Real World Events</router-link>
+    <nav>
+    <router-link to="/" class="brand">현재 신청 목록</router-link>
+    </nav>
     <nav>
       <router-link :to="{ name: 'event-list' }">List</router-link> |
       <router-link :to="{ name: 'event-create' }">Create</router-link>
-    </nav>
+    </>
   </div>
 </template>
 
@@ -23,7 +25,7 @@ export default {}
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.5em;
-  color: #39b982;
+  color: #f68e07;
   text-decoration: none;
 }
 .nav .nav-item {

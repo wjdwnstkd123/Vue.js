@@ -8,6 +8,11 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
+    name: "manage",
+    component: manage
+  },
+  {
+    path: "/",
     name: "Home",
     component: Home
   },
@@ -27,4 +32,3 @@ const router = new VueRouter({
 });
 
 export default router;
-

@@ -6,6 +6,7 @@
 
           <label>Select a category</label>
           <select v-model="event.category">
+          <select 
             <option v-for="cat in categories" :key="cat">{{ cat }}</option>
           </select>
 

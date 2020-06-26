@@ -6,17 +6,34 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: { id: '1', name: '정 준상'},
+    user: { id: 'abc123', name: 'Adam jahr'},
     categories: [
-      'OITA팀',
-      'BITA팀',
-      'AVA팀',
-      'SITA팀'
+      'sustainability',
+      'nature',
+      'animal welfare',
+      'housing',
+      'education',
+      'food',
+      'community'
     ],
     events: [],
     eventsTotal: 0,
     event: {}
   },
+    // },
+    // events: [
+    //   { id: 1, title: '...', organizer: '...'},
+    //   { id: 2, title: '...', organizer: '...'},
+    //   { id: 3, title: '...', organizer: '...'},
+    //   { id: 4, title: '...', organizer: '...'}
+    // ]
+
+    // todos: [
+    //   { id: 1, text: '...', done: true},
+    //   { id: 2, text: '...', done: false},
+    //   { id: 3, text: '...', done: true},
+    //   { id: 4, text: '...', done: false}
+    // ]
   mutations: {
     // event를 추가
     ADD_EVENT(state, event) {
@@ -52,7 +69,9 @@ export default new Vuex.Store({
         })
     },
     fetchEvent({ commit, getters }, id) {
+        
       var event = getters.getEventById(id)
+
         if (event) {
           commit('SET_EVENT', event)
         } else {

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head...>
+<body>
+<div id="app">
+    <ul style="list-style : none">
+      <template v-for="item in items">
+        <li >
+          <img :src="item.image">
+        </li>
+        <li>
+          {{ item.title }}
+        </li>
+      </template>
+
+    </ul>
+</div>
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  let app = new Vue({
+    el: '#app',
+    data() {
+      return {
+        items: [
+        {
+          id:1,
+          image: 'https://picsum.photos/210/118/?image=1',
+          title: '컴퓨터'
+        },
+              {
+          id:2,
+          image: 'https://picsum.photos/210/118/?image=100',
+          title: '사막'
+        },
+                {
+          id:3,
+          image: 'https://picsum.photos/210/118/?image=10',
+          title: '산과 바다'
+        },
+                {
+          id:4,
+          image: 'https://picsum.photos/210/118/?image=11',
+          title: '숲'
+        },
+      ]
+    }
+  }
+})
+</script>
+</body>
+<style>
+
+
+</style>
+</head>
+</html>

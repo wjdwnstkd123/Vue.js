@@ -22,12 +22,12 @@ export default new Vuex.Store({
     ADD_EVENT(state, event) {
       state.events.push(event)
     },
-    SET_EVENTS(state, events) {
-      state.events = events
-    },
-    SET_EVENTS_TOTAL(state, eventsTotal) {
-      state.eventsTotal = eventsTotal
-    },
+    // SET_EVENTS(state, events) {
+    //   state.events = events
+    // },
+    // SET_EVENTS_TOTAL(state, eventsTotal) {
+    //   state.eventsTotal = eventsTotal
+    // },
     SET_EVENT(state, event) {
       state.event = event
     }
@@ -51,20 +51,7 @@ export default new Vuex.Store({
           console.log('There was an error:', error.response)
         })
     },
-    fetchEvent({ commit, getters }, id) {
-      var event = getters.getEventById(id)
-        if (event) {
-          commit('SET_EVENT', event)
-        } else {
-          EventService.getEvent(id)
-            .then(response => {
-              commit('SET_EVENT', response.data)
-            })
-            .catch(error => {
-            console.log('There was an error:', error.response)
-            })
-          }
-      }
+
     },
     getters: {
       getEventById: state => id =>  {
