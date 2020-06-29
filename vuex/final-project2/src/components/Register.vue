@@ -11,7 +11,7 @@
             <option v-for="cat in categories" :key="cat">{{ cat }}</option>
           </select>
 
-          <h4>이름을 입력해주세요.</h4>
+
 
           <div class="field">
             <label>이름</label>

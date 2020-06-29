@@ -4,6 +4,7 @@
     <v-app-bar app color="primary">
       <v-toolbar-title>Vuetify Dashboard</v-toolbar-title>
       <v-spacer></v-spacer>
+      <button>dddd</button>
       <v-btn text rounded>Home</v-btn>
       <v-btn text rounded>Login</v-btn>
     </v-app-bar>
@@ -56,7 +57,7 @@
     </template>
   </v-app>
 </template>
-
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script>
 export default {
   name: "App",
